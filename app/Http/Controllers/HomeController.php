@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -25,4 +26,18 @@ class HomeController extends Controller
     {
         return view('home');
     }
+    
+    public function dashboard(){
+    if (Auth::User()->level=='1') {
+//  $redirectTo = '/dashboardAgen';  // code...
+  return view('homeadmin');
+}else if(Auth::User()->level=='2') {
+  //$redirectTo = '/dashboardPengusaha';
+  return view ('homeuser');
+  }
+  else if(Auth::User()->level=='3') {
+    //$redirectTo = '/dashboardPengusaha';
+    return view ('dashboardAdmin');
+    }
+  }
 }

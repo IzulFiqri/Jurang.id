@@ -1,161 +1,83 @@
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html>
 
-        <title>Login</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-          body{
-          background:linear-gradient(#e6e6e6,#2952a3);
-          display:flex;
-          justify-content:center;
-          align-items:center;
-          width:98%;height:98%;
-          color:white;
-      }
-      #wrapper{
-        border:10px double #193366;
-        margin:auto;
-        width:1000px;
-        height:50%;
-        background: #999999;
-        border-radius:8px;
-      }
-      #header{
-        width:auto;
-        margin-top:0;
-        margin-left:auto;
-        margin-right:auto;
-        border-bottom:10px double black;
-        height:40px;
-        background:#4747d1;
-        padding:10px 5px;
-        font:35px Helvetica;
-      }
-      #header .left{
-        float:left;
-      }
-      #header .right{
-        float:right;
-      }
-      #form{
-          text-align:center;
-          background:#737373;
-          color:white;
-          width:400px;
-          height:200px;
-          margin:0 auto;
-          margin-top:8%;
-          padding:5px;
-          font:25px Arial;
-          display:flex;
-          justify-content:center;
-          align-items:center;
-          border-radius:8px;
-          font-family:Helvetica;
-      }
-      #form input{
-        border:2px solid #d9d9d9;
-        border-radius:4px;
-        height:30px;
-        width:200px;
-        font:15px Helvetica;
-      }
-      .button{
-          margin:0 auto;
-          margin-top:20px;
-          width:100px;
-          height:30px;
-          border-radius:4px;
-          border:2px solid grey;
-      }
-      .button:hover{
-        background:#262626;
-        color:white;
-      }      
-</style>
-
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>awal</title>
+    <link rel="stylesheet" href="{{ asset('assets/bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+    <link rel="stylesheet" href="{{ asset('assets/fonts/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/fonts/ionicons.min.css')}}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700">
+    <link rel="stylesheet" href="{{ asset('assets/css/aguilaraldo1_section_contact.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/Feature-Section-MD.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/Registration-Form-with-Photo.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/Simple-Slider.css')}}">
 </head>
 
 <body>
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
+        <div class="container"><a class="navbar-brand logo" href="#">Jurang.id</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                id="navbarNav">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url('/home') }}">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url('/login') }}">Login</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url('/register') }}">Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="register-photo">
+        <div class="form-container">
+            <div class="image-holder"></div>
+            <form method="post" action="{{ route('register') }}">
+            @csrf
+                <h2 class="text-center"><strong>Create</strong> an account.</h2>
+                <div class="form-group"><input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="User Name" required autofocus></div>
+                <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
+                <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
+                <div class="form-group"><input class="form-control" type="password" name="password_confirmation" placeholder="Password (repeat)"></div>
+                <div class="form-group" required>
+                    <div class="form-check"><label class="form-check-label"><input class="form-check-input" type="checkbox">I agree to the license terms.</label></div>
+                </div>
+                <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Sign Up</button></div><a href="#" class="already">You already have an account? Login here.</a></form>
+        </div>
+    </div>
+    <section class="features">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Dirección / Contacto</h2>
+                    <p>Morbi non mauris massa. Duis elit mauris, malesuada nec suscipit ac, bibendum sed augue. Maecenas condimentum magna gravida, laoreet nunc sed, euismod sem. </p>
+                </div>
+                <div class="col-md-6">
+                    <div class="row icon-features">
+                        <div class="col-4 icon-feature"><i class="fa fa-map-marker"></i>
+                            <p>Dirección </p>
+                            <p>lkjlkdjfsdfjsd pofpsdfjñklsdjkljd </p>
                         </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                        <div class="col-4 icon-feature"><i class="fa fa-phone"></i>
+                            <p>Teléfono </p>
+                            <p>6454875340 - 44095834985</p>
                         </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                        <div class="col-4 icon-feature"><i class="fa fa-envelope"></i>
+                            <p>Correo </p>
+                            <p>ejemplo@ejempl.com </p>
                         </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </section>
+    
+    <script src="{{ asset('ssets/js/jquery.min.js')}}"></script>
+    <script src="{{ asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="{{ asset('assets/js/Simple-Slider.js')}}"></script>
+    <script src="{{ asset('assets/js/theme.js')}}"></script>
 </body>
+
 </html>
