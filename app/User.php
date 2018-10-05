@@ -28,4 +28,9 @@ class User extends Authenticatable implements CanResetPassword
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+        public function isAdmin()
+{
+    return $this->level; // this looks for an admin column in your users table
+}
 }

@@ -15,6 +15,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Route::Auth();
+
+//Auth::routes();
 
 Route::get('/home', 'HomeController@dashboard')->name('home');
+Route::get('/tambahTerasi','terasiController@redir')->middleware('auth', 'cekstat');
+Route::post('/insertTerasi','terasiController@insertTerasi')->middleware('auth', 'cekstat');
+Route::get('/viewTerasi','terasiController@viewBarang')->middleware('auth', 'cekstat');
+Route::get('/viewTerasim','terasiController@viewBarangUser')->middleware('auth');
+Route::get('/forbidden', function () {
+    return view('forbidden');
+});
+Route::get('/hapusTerasi/{id}','terasiController@hapusBarang')->middleware('auth', 'cekstat');
+Route::get('/editTerasi/{id}','terasiController@geteditBarang')->middleware('auth', 'cekstat');
+Route::post('/updateTerasi/{id}','terasiController@editBarang')->middleware('auth', 'cekstat');
+Route::get('protected', ['middleware' => ['auth', 'admin'], function() {
+    return "this page requires that you be logged in and an Admin";
+}]);

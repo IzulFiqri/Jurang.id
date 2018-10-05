@@ -15,6 +15,7 @@
                     @endif
 
                    <h1> You are logged in as user! <h1>
+                    <a href="{{ url('/viewTerasim')}}">Lihat Barang</a>
                 </div>
             </div>
         </div>
