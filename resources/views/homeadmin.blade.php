@@ -3,8 +3,10 @@
 <link rel="stylesheet" href="{{ asset('assets/bootstrap/css/bootstrap.min.css')}}">
 <style type="text/css">
 .mboh{
-bottom:0;
+bottom:0px;
+
 }
+
 .jnc{
 height: 1000px;
 background: #475d62 url(../../assets/img/star-sky.jpg);
@@ -31,6 +33,23 @@ margin-top:20%;
   right: 0;
   top: 0;
 }
+
+.jnc{
+height: 1000px;
+background: #475d62 url(../../assets/img/star-sky.jpg);
+    background-size: auto auto;
+background-size: cover;
+position: relative;
+
+}
+
+.konten{
+    width: 650px;
+    margin-left: 50px;
+
+}
+
+
 </style>
 @endsection
 @extends('layouts.app')
@@ -94,6 +113,34 @@ margin-top:20%;
                     <button type="submit" class="float-right btn btn-primary">Submit</button>
                    </form>
                 </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <div class="card konten" id="post">
+                         <div class="card-header">Terasi Udang</div>
+                        <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="../../assets/img/terasi-udang.jpg" style="width: 150px; margin-right: 20px;">
+                            </div>
+                            <div class="col">
+                                <p class="card-text"> Yoo Terasi YOOO </p>
+                                <p class="card-text">RP 50.000</p>
+                                <p class="card-text">MURMER</p>
+                            </div>
+
+                        </div>
+
+                            <br>
+                             <button type="submit" class="float-left btn btn-primary">Edit</button>
+                             <button type="submit" class="float-right btn btn-primary">Hapus</button>
+                        </div>
+
+                    </div>
+                </div>
+        
             </div>
         </div>
         <div class="col-md-4 crd">
