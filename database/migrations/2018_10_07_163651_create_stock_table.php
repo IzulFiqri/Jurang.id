@@ -15,6 +15,7 @@ class CreateStockTable extends Migration
     {
         Schema::create('stock', function (Blueprint $table) {
             $table->increments('idStock');
+            $table->string('foto');
             $table->string('namaStock');
             $table->string('beratStock');
             $table->integer('jumlahStock');

@@ -4,14 +4,14 @@
 <style type="text/css">
 .mboh{
 bottom:0px;
-margin-top: 250px;
+
 
 }
 
 .jnc{
 height: 1000px;
 background: #475d62 url(../../assets/img/star-sky.jpg);
-    background-size: auto auto;
+background-size: auto auto;
 background-size: cover;
 position: relative;
 }
@@ -38,7 +38,7 @@ margin-top:20%;
 .jnc{
 height: 1000px;
 background: #475d62 url(../../assets/img/star-sky.jpg);
-    background-size: auto auto;
+background-size: auto auto;
 background-size: cover;
 position: relative;
 
@@ -94,43 +94,46 @@ position: relative;
             </div>
         </div>
     </nav>
-
+<div class="jnc">
 <div class="container">
-    <div class="row" style="margin-top: 150px; margin-left: 200px;">
-        <div class="col-md-8 col-md-offset-2">
+    <div class="row" >
+        <div class="col-md-8 col-md-offset-2"style="margin-top: 200px; margin-left: 200px;">
             <div class="panel panel-default">
-                <div class="panel-heading" style="margin-bottom: 30px;"><strong><h2>Daftar Stock</h2></strong></div>
-
                 <div class="panel-body">
                     @if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}
                         </div>
                     @endif
+                <div class="card konten" id="post">
+                    <div class="card-header"><strong><h2>Daftar Stock</h2></strong></div>
+                    <div class="card-body">
+                    <div class="row">
+                        <table class="table table-stripped">
+                        <tr style='font-weight:bold;'>
+                            <td class="text-center text-nowrap">Nama Stock</td>
+                            <td class="text-center text-nowrap">Berat Stock</td>
+                            <td class="text-center text-nowrap">Jumlah Stock</td>
+                            <td class="text-center text-nowrap">Harga</td>
+                        </tr>
 
-                    <table class="table table-stripped">
-                      <tr style='font-weight:bold;'>
-                        <td class="text-center text-nowrap">Nama Stock</td>
-                        <td class="text-center text-nowrap">Berat Stock</td>
-                        <td class="text-center text-nowrap">Jumlah Stock</td>
-                        <td class="text-center text-nowrap">Harga</td>
-                      </tr>
+                        @foreach($tampil as $data)
+                        <tr>
+                            <td class="text-center text-nowrap">{{$data->namaStock}}</td>
+                            <td class="text-center text-nowrap">{{$data->beratStock}}</td>
+                            <td class="text-center text-nowrap">{{$data->jumlahStock}}</td>
+                            <td class="text-center text-nowrap">{{$data->harga}}</td>
+                            <td class="text-center text-nowrap"><a href="{{url('/editTerasi/'.$data->idStock )}}">Edit</a></td>
+                            <td class="text-center text-nowrap"><a href="{{url('/hapusTerasi/'.$data->idStock )}}">Hapus</a></td>
+                        </tr>
+                        @endforeach
+                        </table>
+                    </div>
+                    <br>
+                        <a href="{{url('/tambahTerasi')}}" class="btn btn-primary" style="margin-top: 100px;">Tambah Stok</a>
+                    </div>
 
-                       
-
-  					
-                    @foreach($tampil as $data)
-					<tr>
-                      <td class="text-center text-nowrap">{{$data->namaStock}}</td>
-                      <td class="text-center text-nowrap">{{$data->beratStock}}</td>
-					  <td class="text-center text-nowrap">{{$data->jumlahStock}}</td>
-					  <td class="text-center text-nowrap">{{$data->harga}}</td>
-                      <td class="text-center text-nowrap"><a href="{{url('/editTerasi/'.$data->idStock )}}">Edit</a></td>
-                      <td class="text-center text-nowrap"><a href="{{url('/hapusTerasi/'.$data->idStock )}}">Hapus</a></td>
-					</tr>
-					@endforeach
-                  </table>
-                  <a href="{{url('/tambahTerasi')}}" class="btn btn-primary" style="margin-top: 100px;">Tambah Stok</a>
+                </div>
                 </div>
             </div>
         </div>

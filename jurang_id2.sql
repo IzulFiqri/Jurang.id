@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 08, 2018 at 01:50 AM
+-- Generation Time: Oct 08, 2018 at 06:26 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -39,8 +39,8 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(7, '2018_10_07_162247_create_users_table', 1),
-(8, '2018_10_07_163651_create_stock_table', 1);
+(9, '2018_10_07_162247_create_users_table', 1),
+(10, '2018_10_07_163651_create_stock_table', 1);
 
 -- --------------------------------------------------------
 
@@ -50,6 +50,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 
 CREATE TABLE `stock` (
   `idStock` int(10) UNSIGNED NOT NULL,
+  `foto` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `namaStock` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `beratStock` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `jumlahStock` int(11) NOT NULL,
@@ -62,8 +63,8 @@ CREATE TABLE `stock` (
 -- Dumping data for table `stock`
 --
 
-INSERT INTO `stock` (`idStock`, `namaStock`, `beratStock`, `jumlahStock`, `harga`, `created_at`, `updated_at`) VALUES
-(1, 'Terasi Udang', '2 ons', 20, 10000, '2018-10-07 16:49:16', '2018-10-07 16:49:16');
+INSERT INTO `stock` (`idStock`, `foto`, `namaStock`, `beratStock`, `jumlahStock`, `harga`, `created_at`, `updated_at`) VALUES
+(1, 'hafiz.png', 'Terasi Udang', '2 ons', 20, 20000, '2018-10-08 08:57:49', '2018-10-08 08:57:49');
 
 -- --------------------------------------------------------
 
@@ -88,8 +89,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `level`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 2, 'fardo', 'fardo@mail.com', NULL, '$2y$10$ADA4c.W5tySZ48vpntWvuOYdyAej/yg9nDbu5UcjYlGb8tCGYiNC2', 'FQN3xpizgitvmIXCoaJp6OE3VZDUG01C01BU49QThk6WgWKxWp9o1aXQI3aE', '2018-10-07 16:46:19', '2018-10-07 16:46:19'),
-(2, 1, 'dinda', 'dinda@gmail.com', NULL, '$2y$10$ADA4c.W5tySZ48vpntWvuOYdyAej/yg9nDbu5UcjYlGb8tCGYiNC2', NULL, '2018-10-07 17:00:00', '2018-10-07 16:46:19');
+(1, 2, 'fardo', 'fardo@mail.com', NULL, '$2y$10$sa1OetgEqPqhwe9aynEFAegnZAZ5t3JJAQRk0qIOdGPjSqCN3HOmG', '4AjBvKbW8MYorGLcxFaewT8vqVIyiaT6OTsEtoElNr9fXRPKO9gwT3vvy6Ex', '2018-10-08 08:51:33', '2018-10-08 08:51:33'),
+(2, 1, 'dinda', 'dinda@mail.com', NULL, '$2y$10$sa1OetgEqPqhwe9aynEFAegnZAZ5t3JJAQRk0qIOdGPjSqCN3HOmG', NULL, '2018-10-08 08:51:33', '2018-10-08 08:51:33');
 
 --
 -- Indexes for dumped tables
@@ -122,7 +123,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `stock`
