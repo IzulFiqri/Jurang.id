@@ -10,6 +10,29 @@
                 <div class="panel-body">
                     <form class="form-horizontal" action="{{url('/insertTerasi')}}" method="POST">
                         {{ csrf_field() }}
+                            <div class="form-group{{ $errors->has('namaStock') ? ' has-error' : '' }}">
+                            <label for="text" class="col-md-4 control-label">Nama Stock</label>
+                            <div class="col-md-6">
+                            <input type="text" class="form-control" name="namaStock" placeholder="Nama Stock" />
+                            @if ($errors->has('namaStock'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('namaStock') }}</strong>
+                                </span>
+                            @endif
+                            </div>
+                            </div>
+
+                            <div class="form-group{{ $errors->has('beratStock') ? ' has-error' : '' }}">
+                            <label for="text" class="col-md-4 control-label">Berat Stock</label>
+                            <div class="col-md-6">
+                            <input type="text" class="form-control" name="beratStock" placeholder="Berat Stock" />
+                            @if ($errors->has('beratStock'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('beratStock') }}</strong>
+                                </span>
+                            @endif
+                            </div>
+                            </div>
 
                             <div class="form-group{{ $errors->has('jumlahStock') ? ' has-error' : '' }}">
                             <label for="text" class="col-md-4 control-label">Jumlah Stock</label>

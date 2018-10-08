@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 28, 2018 at 12:25 AM
+-- Generation Time: Oct 08, 2018 at 01:50 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -30,9 +30,40 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `migration` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(7, '2018_10_07_162247_create_users_table', 1),
+(8, '2018_10_07_163651_create_stock_table', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `stock`
+--
+
+CREATE TABLE `stock` (
+  `idStock` int(10) UNSIGNED NOT NULL,
+  `namaStock` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `beratStock` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `jumlahStock` int(11) NOT NULL,
+  `harga` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `stock`
+--
+
+INSERT INTO `stock` (`idStock`, `namaStock`, `beratStock`, `jumlahStock`, `harga`, `created_at`, `updated_at`) VALUES
+(1, 'Terasi Udang', '2 ons', 20, 10000, '2018-10-07 16:49:16', '2018-10-07 16:49:16');
 
 -- --------------------------------------------------------
 
@@ -42,22 +73,23 @@ CREATE TABLE `migrations` (
 
 CREATE TABLE `users` (
   `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `level` int(11) NOT NULL,
+  `name` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `username` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `username`) VALUES
-(1, 'user', 'user@gmail.com', NULL, '$2y$10$f/79BWsslPQ8/QlO/fWAUuqGlcyWI.3gC5YqVme3UUadw/4PlRN0O', 'KaqdsNOO4J8mJc6CBi55wodXMV7NXPpiJvePoDjKvHaGyvbtYs5VWyeApDnr', '2018-09-27 08:46:52', '2018-09-27 08:46:52', '');
+INSERT INTO `users` (`id`, `level`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 2, 'fardo', 'fardo@mail.com', NULL, '$2y$10$ADA4c.W5tySZ48vpntWvuOYdyAej/yg9nDbu5UcjYlGb8tCGYiNC2', 'FQN3xpizgitvmIXCoaJp6OE3VZDUG01C01BU49QThk6WgWKxWp9o1aXQI3aE', '2018-10-07 16:46:19', '2018-10-07 16:46:19'),
+(2, 1, 'dinda', 'dinda@gmail.com', NULL, '$2y$10$ADA4c.W5tySZ48vpntWvuOYdyAej/yg9nDbu5UcjYlGb8tCGYiNC2', NULL, '2018-10-07 17:00:00', '2018-10-07 16:46:19');
 
 --
 -- Indexes for dumped tables
@@ -70,10 +102,17 @@ ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `stock`
+--
+ALTER TABLE `stock`
+  ADD PRIMARY KEY (`idStock`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -83,13 +122,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `stock`
+--
+ALTER TABLE `stock`
+  MODIFY `idStock` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

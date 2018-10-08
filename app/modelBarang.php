@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class modelBarang extends Model
 {
-  protected $table = 'stockterasi';
+  protected $table = 'stock';
   protected $primaryKey = 'idStock';
   protected $fillable = [
-      'jumlahStock', 'harga'
+      'namaStock','beratStock','jumlahStock', 'harga'
   ];
-  public $timestamps=false;
+  
 }

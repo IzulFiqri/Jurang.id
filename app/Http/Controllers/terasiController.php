@@ -22,6 +22,8 @@ class terasiController extends Controller
     if($validator->passes())
     {
     $insert = ([
+          'namaStock' => $request->namaStock,
+          'beratStock' => $request->beratStock,
     			'jumlahStock' => $request->jumlahStock,
     			'harga' => $request->harga,
     			]);
@@ -40,6 +42,8 @@ class terasiController extends Controller
 public function validator(Request $request)
 {
     $rules = [
+      'namaStock' => 'required|string',
+      'beratStock' => 'required|string',
       'jumlahStock' => 'required|integer',
       'harga' => 'required|integer',
     ];
