@@ -21,15 +21,20 @@ class terasiController extends Controller
     $validator = $this->validator($request);
     if($validator->passes())
     {
+      // dd($request->file('foto'));
+      $fileName   = $request->file('foto')->getClientOriginalName();
+      $request->file('foto')->move("image/", $fileName);
     $insert = ([
-          'foto' => $request->foto,
+          'foto' => $request->file('foto')->getClientOriginalName(),
           'namaStock' => $request->namaStock,
           'beratStock' => $request->beratStock,
     			'jumlahStock' => $request->jumlahStock,
     			'harga' => $request->harga,
+          'posthome' => 0,
     			]);
           modelBarang::create($insert);
           return redirect('viewTerasi');
+        
     }
     else
     {
@@ -43,7 +48,7 @@ class terasiController extends Controller
 public function validator(Request $request)
 {
     $rules = [
-      'foto' => 'required|string',
+      'foto' => 'required',
       'namaStock' => 'required|string',
       'beratStock' => 'required|string',
       'jumlahStock' => 'required|integer',
@@ -79,6 +84,10 @@ public function validator(Request $request)
     $validator = $this->validator($request);
     if($validator->passes())
     {
+      $fileName   = $request->file('foto')->getClientOriginalName();
+      $request->file('foto')->move("image/", $fileName);
+      $edit->foto= $request->file('foto')->getClientOriginalName();
+      $edit->namaStock= $request->namaStock;
       $edit->jumlahStock= $request->jumlahStock;
       $edit->harga= $request->harga;
       $edit->save();
@@ -92,4 +101,18 @@ public function validator(Request $request)
     }
 
   }
+
+  public function postBarang(Request $request, $id){
+    $post=modelBarang::find($id);
+      $post->posthome= 1;
+      $post->save();
+      return redirect('home');
+    }
+
+    public function batalpostBarang(Request $request, $id){
+    $post=modelBarang::find($id);
+      $post->posthome= 0;
+      $post->save();
+      return redirect('home');
+    }
 }

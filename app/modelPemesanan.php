@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class modelBarang extends Model
+class modelPemesanan extends Model
 {
   protected $table = 'stock';
   protected $primaryKey = 'idStock';
   protected $fillable = [
-      'foto','namaStock','beratStock','jumlahStock', 'harga', 'posthome'
-  ];
+  'foto','namaStock','beratStock','jumlahStock', 'harga', 'posthome'
   
+  ];
 }

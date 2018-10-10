@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\modelBarang;
 
 class HomeController extends Controller
 {
@@ -30,10 +31,12 @@ class HomeController extends Controller
     public function dashboard(){
     if (Auth::User()->level=='1') {
 //  $redirectTo = '/dashboardAgen';  // code...
-  return view('homeadmin');
+
+  $tampil= modelBarang::where('posthome',1)->get();
+  return view('homeadmin', compact('tampil'));
 }else if(Auth::User()->level=='2') {
-  //$redirectTo = '/dashboardPengusaha';
-  return view ('homeuser');
+  $tampil= modelBarang::where('posthome',1)->get();
+  return view('homeuser', compact('tampil'));
   }
   else if(Auth::User()->level=='3') {
     //$redirectTo = '/dashboardPengusaha';

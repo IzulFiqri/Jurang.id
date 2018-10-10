@@ -100,7 +100,7 @@ position: relative;
                 <div class="card konten" id="post">
                     <div class="card-header">Tambah Terasi</div>
                     <div class="card-body">
-                    <form class="form-horizontal" action="{{url('/insertTerasi')}}" method="POST" style="margin-left: 130px;">
+                    <form enctype="multipart/form-data" class="form-horizontal" action="{{url('/insertTerasi')}}" method="POST" style="margin-left: 130px;">
                         {{ csrf_field() }}
                          <div class="form-group{{ $errors->has('foto') ? ' has-error' : '' }}">
                             <label for="text" class="col-md-4 control-label">Foto Barang</label>

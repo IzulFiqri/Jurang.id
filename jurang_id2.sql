@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 08, 2018 at 06:26 PM
+-- Generation Time: Oct 10, 2018 at 09:17 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -55,6 +55,7 @@ CREATE TABLE `stock` (
   `beratStock` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `jumlahStock` int(11) NOT NULL,
   `harga` int(11) NOT NULL,
+  `posthome` tinyint(1) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -63,8 +64,8 @@ CREATE TABLE `stock` (
 -- Dumping data for table `stock`
 --
 
-INSERT INTO `stock` (`idStock`, `foto`, `namaStock`, `beratStock`, `jumlahStock`, `harga`, `created_at`, `updated_at`) VALUES
-(1, 'hafiz.png', 'Terasi Udang', '2 ons', 20, 20000, '2018-10-08 08:57:49', '2018-10-08 08:57:49');
+INSERT INTO `stock` (`idStock`, `foto`, `namaStock`, `beratStock`, `jumlahStock`, `harga`, `posthome`, `created_at`, `updated_at`) VALUES
+(1, 'hafiz.png', 'Terasi Udang', '2 ons', 20, 20000, 1, '2018-10-08 08:57:49', '2018-10-09 06:49:35');
 
 -- --------------------------------------------------------
 
@@ -89,8 +90,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `level`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 2, 'fardo', 'fardo@mail.com', NULL, '$2y$10$sa1OetgEqPqhwe9aynEFAegnZAZ5t3JJAQRk0qIOdGPjSqCN3HOmG', '4AjBvKbW8MYorGLcxFaewT8vqVIyiaT6OTsEtoElNr9fXRPKO9gwT3vvy6Ex', '2018-10-08 08:51:33', '2018-10-08 08:51:33'),
-(2, 1, 'dinda', 'dinda@mail.com', NULL, '$2y$10$sa1OetgEqPqhwe9aynEFAegnZAZ5t3JJAQRk0qIOdGPjSqCN3HOmG', NULL, '2018-10-08 08:51:33', '2018-10-08 08:51:33');
+(1, 2, 'fardo', 'fardo@mail.com', NULL, '$2y$10$sa1OetgEqPqhwe9aynEFAegnZAZ5t3JJAQRk0qIOdGPjSqCN3HOmG', 'M65leGOH5Dz9AhaHquaQAbrIcHjplkTSsbm3UYJI349Ya23Pja0KVGKqNiSb', '2018-10-08 08:51:33', '2018-10-08 08:51:33'),
+(2, 1, 'dinda', 'dinda@mail.com', NULL, '$2y$10$sa1OetgEqPqhwe9aynEFAegnZAZ5t3JJAQRk0qIOdGPjSqCN3HOmG', 'NV1qC7WNePkRXi5WLFXad7d6fWEMSxD7SHLgzGQ4WAqfkHIlLO24zbpn5MCC', '2018-10-08 08:51:33', '2018-10-08 08:51:33');
 
 --
 -- Indexes for dumped tables

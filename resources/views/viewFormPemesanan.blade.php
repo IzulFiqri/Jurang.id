@@ -5,12 +5,13 @@
 .mboh{
 bottom:0px;
 
+
 }
 
 .jnc{
 height: 1000px;
 background: #475d62 url(../../assets/img/star-sky.jpg);
-    background-size: auto auto;
+background-size: auto auto;
 background-size: cover;
 position: relative;
 }
@@ -37,7 +38,7 @@ margin-top:20%;
 .jnc{
 height: 1000px;
 background: #475d62 url(../../assets/img/star-sky.jpg);
-    background-size: auto auto;
+background-size: auto auto;
 background-size: cover;
 position: relative;
 
@@ -65,8 +66,8 @@ position: relative;
                     <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url('/login') }}">Login</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url('/register') }}">Register</a></li>
                     @else
-                    @if(Auth::User()->level==1)
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url('/viewTerasi') }}">Data Stok</a></li>
+                    @if(Auth::User()->level==2)
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url('/viewTerasim') }}">Data Stok</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url('/') }}">Data Pemesanan</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url('/') }}">Konfirmasi Pembayaran</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url('/') }}">Pengiriman</a></li>
@@ -93,54 +94,24 @@ position: relative;
             </div>
         </div>
     </nav>
+
+
+
+
+
+
 <div class="jnc">
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8 crd">
-            <br>
-            <br>
-            <div class="row">
-            @foreach($tampil as $data)
-                <div class="col">
-                    <div class="card konten" id="post">
-                         <div class="card-header">Terasi Udang</div>
-                        <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <img src="/image/{{$data->foto}}" style="width: 150px; margin-right: 20px;">
-                            </div>
-                            <div class="col">
-                                <p class="card-text">Nama Stock : {{$data->namaStock}}</p>
-                                <p class="card-text">Berat : {{$data->beratStock}}</p>
-                                <p class="card-text">Jumlah Stock : {{$data->jumlahStock}}</p>
-                                <p class="card-text">Harga : {{$data->harga}}</p>
-                            </div>
-
-                        </div>
-
-                            <br>
-                             <a href="{{url('/editTerasi/'.$data->idStock )}}" class="float-left btn btn-primary">Edit</a>
-                             <a href="{{url('/batalpostTerasi/'.$data->idStock )}}" class="float-right btn btn-primary">Hapus Post</a>
-                        </div>
-
-                    </div>
-                </div>
-            @endforeach
-        
-            </div>
-        </div>
-        <div class="col-md-4 crd">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
+    <div class="row" >
+        <div class="col-md-8 col-md-offset-2"style="margin-top: 200px; margin-left: 200px;">
+            <div class="panel panel-default">
+                <div class="panel-body">
                     @if (session('status'))
-                        <div class="alert alert-success" role="alert">
+                        <div class="alert alert-success">
                             {{ session('status') }}
                         </div>
                     @endif
 
-                   <h1> You are logged in as {{ Auth::user()->name }}! <h1>
                 </div>
             </div>
         </div>

@@ -125,6 +125,9 @@ position: relative;
                             <td class="text-center text-nowrap">{{$data->harga}}</td>
                             <td class="text-center text-nowrap"><a href="{{url('/editTerasi/'.$data->idStock )}}">Edit</a></td>
                             <td class="text-center text-nowrap"><a href="{{url('/hapusTerasi/'.$data->idStock )}}">Hapus</a></td>
+                            @if($data->posthome==0)
+                            <td class="text-center text-nowrap"><a href="{{url('/postTerasi/'.$data->idStock )}}">Post</a></td>
+                            @endif
                         </tr>
                         @endforeach
                         </table>
