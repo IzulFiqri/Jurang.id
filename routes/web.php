@@ -24,7 +24,10 @@ Route::get('/tambahTerasi','terasiController@redir')->middleware('auth', 'ceksta
 Route::post('/insertTerasi','terasiController@insertTerasi')->middleware('auth', 'cekstat');
 Route::get('/viewTerasi','terasiController@viewBarang')->middleware('auth', 'cekstat');
 Route::get('/viewTerasim','terasiController@viewBarangUser')->middleware('auth');
-Route::get('/viewFormPemesanan','pemesananController@redir')->middleware('auth');
+Route::get('/viewFormPemesanan/{id}','pemesananController@redir')->middleware('auth');
+Route::post('/insertForm/{id}','pemesananController@insertPemesanan')->middleware('auth');
+Route::get('/viewPemesanan/admin','pemesananController@viewPemesanan')->middleware('cekstat');
+Route::get('/viewPemesanan/','pemesananController@getViewPemesanan')->middleware('auth');
 Route::get('/forbidden', function () {
     return view('forbidden');
 });

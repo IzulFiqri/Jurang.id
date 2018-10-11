@@ -28,7 +28,6 @@ class terasiController extends Controller
           'foto' => $request->file('foto')->getClientOriginalName(),
           'namaStock' => $request->namaStock,
           'beratStock' => $request->beratStock,
-    			'jumlahStock' => $request->jumlahStock,
     			'harga' => $request->harga,
           'posthome' => 0,
     			]);
@@ -50,8 +49,7 @@ public function validator(Request $request)
     $rules = [
       'foto' => 'required',
       'namaStock' => 'required|string',
-      'beratStock' => 'required|string',
-      'jumlahStock' => 'required|integer',
+      'beratStock' => 'required|integer',
       'harga' => 'required|integer',
     ];
     return Validator::make($request->all(), $rules);

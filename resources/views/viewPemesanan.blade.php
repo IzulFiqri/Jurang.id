@@ -5,13 +5,12 @@
 <style type="text/css">
 .mboh{
 bottom:0px;
-
 }
 
 .jnc{
 height: 1000px;
 background: #475d62 url(../../assets/img/star-sky.jpg);
-    background-size: auto auto;
+background-size: auto auto;
 background-size: cover;
 position: relative;
 }
@@ -38,7 +37,7 @@ margin-top:20%;
 .jnc{
 height: 1000px;
 background: #475d62 url(../../assets/img/star-sky.jpg);
-background-size: auto;
+background-size: auto auto;
 background-size: cover;
 position: relative;
 
@@ -47,7 +46,7 @@ position: relative;
 .konten{
     width: 650px;
     margin-left: 50px;
-    margin-bottom:5%;
+
 }
 
 
@@ -57,34 +56,36 @@ position: relative;
 <div class="jnc">
 <div class="container justify-content-center">
 <div class="row">
-        <div class="col-md-8 crd">
-        @foreach($tampil as $data)
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="card konten" id="post">
-                         <div class="card-header">{{$data->namaStock}}</div>
-                        <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <img src="/image/{{$data->foto}}" class="card-img" style="width:200px; margin-right: 20px;">
-                            </div>
-                            <div class="col">
-                                <p class="card-text">Nama Stock : {{$data->namaStock}}</p>
-                                <p class="card-text">Berat : {{$data->beratStock}} kg</p>
-                                <p class="card-text">Harga : {{$data->harga}}</p>
-                            </div>
-                        </div>
-                        </div>
-                        <div class="card-footer">
-                             <a href="{{url('/editTerasi/'.$data->idStock )}}" class="float-left btn btn-primary">Edit</a>
-                             <a href="{{url('/batalpostTerasi/'.$data->idStock )}}" class="float-right btn btn-primary">Hapus Post</a>
-                        </div>
-                    </div>
+
+<div class="col-md-9 crd">
+            <div class="card">
+                <div class="card-header">Data Pemesanan</div>
+                <div class="card-body">
+                @if(count($view)>0)
+                    <table class="table table-stripped table-bordered">
+                      <tr style='font-weight:bold;'>
+                        <td class="text-center text-nowrap">Nama Pemesan</td>
+                        <td class="text-center text-nowrap">Nama Stok Dipesan</td>
+                        <td class="text-center text-nowrap">Jumlah yang Dipesan</td>
+                        <td class="text-center text-nowrap">Total harus dibayar</td>
+                      </tr>
+                @foreach($view as $display)
+                    <tr>
+                        <td class="text-center text-nowrap">{{$display->namaPemesan}}</td>
+                        <td class="text-center text-nowrap">{{$display->namaStock}}</td>
+                        <td class="text-center text-nowrap">{{$display->jumlahPesanan}} kg</td>
+                        <td class="text-center text-nowrap">{{$display->total}}</td>
+                      </tr>
+                @endforeach
+                    </table>
+                @else
+                Anda belum membeli apapun.
+                @endif
                 </div>
             </div>
-            @endforeach
         </div>
-        <div class="col-md-4 crd">
+
+<div class="col-md-3 crd">
             <div class="card">
                 <div class="card-header">Dashboard</div>
 
@@ -99,7 +100,6 @@ position: relative;
                 </div>
             </div>
         </div>
-
 </div>
 </div>
 </div>

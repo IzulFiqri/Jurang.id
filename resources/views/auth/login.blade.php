@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700">
     <link rel="stylesheet" href="{{ asset('assets/css/aguilaraldo1_section_contact.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/Feature-Section-MD.css')}}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
     <link rel="stylesheet" href="{{ asset('assets/css/Login-Form-Dark.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/Registration-Form-with-Photo.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/Simple-Slider.css')}}">
@@ -68,8 +67,6 @@
     </section>
     <script src="{{ asset('assets/js/jquery.min.js')}}"></script>
     <script src="{{ asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
-    <script src="{{ asset('assets/js/Simple-Slider.js')}}"></script>
     <script src="{{ asset('assets/js/theme.js')}}"></script>
 </body>
 

@@ -20,9 +20,9 @@
     <div class="simple-slider">
         <div class="swiper-container">
             <div class="swiper-wrapper">
-                <div class="swiper-slide" style="background-image:url(https://placeholdit.imgix.net/~text?txtsize=68&amp;txt=Slideshow+Image&amp;w=1920&amp;h=500);"></div>
-                <div class="swiper-slide" style="background-image:url(https://placeholdit.imgix.net/~text?txtsize=68&amp;txt=Slideshow+Image&amp;w=1920&amp;h=500);"></div>
-                <div class="swiper-slide" style="background-image:url(https://placeholdit.imgix.net/~text?txtsize=68&amp;txt=Slideshow+Image&amp;w=1920&amp;h=500);"></div>
+                <div class="swiper-slide" style="background-image:url({{asset('image/placeholder.png')}});"></div>
+                <div class="swiper-slide" style="background-image:url({{asset('image/placeholder.png')}});"></div>
+                <div class="swiper-slide" style="background-image:url({{asset('image/placeholder.png')}});"></div>
             </div>
             <div class="swiper-pagination"></div>
             <div class="swiper-button-prev"></div>
@@ -34,9 +34,12 @@
             <div class="collapse navbar-collapse"
                 id="navbarNav">
                 <ul class="nav navbar-nav ml-auto">
+                    @if(Auth::check())
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="{{ url('/home') }}">Home</a></li>
+                    @else
                     <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url('/login') }}">Login</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url('/register') }}">Register</a></li>
+                    @endif
                 </ul>
             </div>
         </div>
@@ -107,7 +110,7 @@
     </section>
     <script src="{{ asset('assets/js/jquery.min.js')}}"></script>
     <script src="{{ asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="{{ asset('assets/js/swiper.jquery.min.js')}}"></script>
     <script src="{{ asset('assets/js/Simple-Slider.js')}}"></script>
     <script src="{{ asset('assets/js/theme.js')}}"></script>
 </body>

@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700">
     <link rel="stylesheet" href="{{ asset('assets/css/aguilaraldo1_section_contact.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/Feature-Section-MD.css')}}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
     <link rel="stylesheet" href="{{ asset('assets/css/Registration-Form-with-Photo.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/Simple-Slider.css')}}">
 </head>
@@ -40,9 +39,6 @@
                 <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
                 <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
                 <div class="form-group"><input class="form-control" type="password" name="password_confirmation" placeholder="Password (repeat)"></div>
-                <div class="form-group" required>
-                    <div class="form-check"><label class="form-check-label"><input class="form-check-input" type="checkbox">I agree to the license terms.</label></div>
-                </div>
                 <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Sign Up</button></div><a href="#" class="already">You already have an account? Login here.</a></form>
         </div>
     </div>
@@ -75,8 +71,6 @@
     
     <script src="{{ asset('ssets/js/jquery.min.js')}}"></script>
     <script src="{{ asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
-    <script src="{{ asset('assets/js/Simple-Slider.js')}}"></script>
     <script src="{{ asset('assets/js/theme.js')}}"></script>
 </body>
 

@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class modelPemesanan extends Model
 {
-  protected $table = 'stock';
-  protected $primaryKey = 'idStock';
+  protected $table = 'pemesanan';
+  protected $primaryKey = 'idPemesanan';
   protected $fillable = [
-  'foto','namaStock','beratStock','jumlahStock', 'harga', 'posthome'
+  'namaPemesan','idStock','iduser','jumlahPesanan','noTelponPemesanan','alamatPemesan', 'alamatPengiriman'
   
   ];
+  public $timestamps = false;
 }

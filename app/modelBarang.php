@@ -9,7 +9,7 @@ class modelBarang extends Model
   protected $table = 'stock';
   protected $primaryKey = 'idStock';
   protected $fillable = [
-      'foto','namaStock','beratStock','jumlahStock', 'harga', 'posthome'
+      'foto','namaStock','beratStock', 'harga', 'posthome'
   ];
   
 }
