@@ -40,7 +40,7 @@ class pemesananController extends Controller
     	]);
 
     $edit = modelBarang::find($id);
-    $edit->jumlahStock = $edit->beratStock - $request->jumlahPesanan;
+    
     $edit->save();
 
           modelPemesanan::create($insert);

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 11, 2018 at 03:11 PM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 7.2.7
+-- Waktu pembuatan: 11 Okt 2018 pada 20.26
+-- Versi server: 10.1.36-MariaDB
+-- Versi PHP: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Struktur dari tabel `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -35,7 +35,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `migrations`
+-- Dumping data untuk tabel `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -45,7 +45,27 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pemesanan`
+-- Struktur dari tabel `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `id` int(10) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `token` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `password_resets`
+--
+
+INSERT INTO `password_resets` (`id`, `email`, `token`, `created_at`) VALUES
+(2, 'fardo@mail.com', '$2y$10$fFYL1lyBbjxfWoGMvXB6juyHOz6UTyQeTaDFgPZhe35hbmiXJAFyO', '2018-10-11 11:05:32');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `pemesanan`
 --
 
 CREATE TABLE `pemesanan` (
@@ -60,7 +80,7 @@ CREATE TABLE `pemesanan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pemesanan`
+-- Dumping data untuk tabel `pemesanan`
 --
 
 INSERT INTO `pemesanan` (`idPemesanan`, `idStock`, `iduser`, `namaPemesan`, `jumlahPesanan`, `noTelponPemesanan`, `alamatPemesan`, `alamatPengiriman`) VALUES
@@ -70,7 +90,30 @@ INSERT INTO `pemesanan` (`idPemesanan`, `idStock`, `iduser`, `namaPemesan`, `jum
 -- --------------------------------------------------------
 
 --
--- Table structure for table `stock`
+-- Struktur dari tabel `profil`
+--
+
+CREATE TABLE `profil` (
+  `idprofil` int(10) NOT NULL,
+  `iduser` int(10) UNSIGNED NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `alamat` varchar(255) NOT NULL,
+  `nomortelepon` varchar(255) NOT NULL,
+  `pointqu` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `profil`
+--
+
+INSERT INTO `profil` (`idprofil`, `iduser`, `nama`, `alamat`, `nomortelepon`, `pointqu`) VALUES
+(1, 1, 'Ini Fardo', 'jl. coba', '089829083928', 0),
+(2, 2, 'Dinda', 'Jl. Coba', '082838291829', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `stock`
 --
 
 CREATE TABLE `stock` (
@@ -85,7 +128,7 @@ CREATE TABLE `stock` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `stock`
+-- Dumping data untuk tabel `stock`
 --
 
 INSERT INTO `stock` (`idStock`, `foto`, `namaStock`, `beratStock`, `harga`, `posthome`, `created_at`, `updated_at`) VALUES
@@ -95,7 +138,7 @@ INSERT INTO `stock` (`idStock`, `foto`, `namaStock`, `beratStock`, `harga`, `pos
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -111,11 +154,11 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`id`, `level`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 2, 'fardo', 'fardo@mail.com', NULL, '$2y$10$sa1OetgEqPqhwe9aynEFAegnZAZ5t3JJAQRk0qIOdGPjSqCN3HOmG', 'B4RKsjYaIxAvkCnCVt79ryCGVOiUVc2lUYCDRBfDVmbFAZNvMALgEQjA6sjE', '2018-10-08 08:51:33', '2018-10-08 08:51:33'),
+(1, 2, 'fardo', 'fardo@mail.com', NULL, '$2y$10$sa1OetgEqPqhwe9aynEFAegnZAZ5t3JJAQRk0qIOdGPjSqCN3HOmG', 'f0qBzUwFAFZwXkRwe7EIsnfamEteXgDNLmoWtMd6Cz6TiYnmpnUV0qRx5Hnv', '2018-10-08 08:51:33', '2018-10-08 08:51:33'),
 (2, 1, 'dinda', 'dinda@mail.com', NULL, '$2y$10$sa1OetgEqPqhwe9aynEFAegnZAZ5t3JJAQRk0qIOdGPjSqCN3HOmG', 'yeoJRQqzEidZAF8OFMM8YsWxUV9pz8wxgdWMs4aQ78PcfTCiYL0UXcNs5K9t', '2018-10-08 08:51:33', '2018-10-08 08:51:33');
 
 --
@@ -123,13 +166,19 @@ INSERT INTO `users` (`id`, `level`, `name`, `email`, `email_verified_at`, `passw
 --
 
 --
--- Indexes for table `migrations`
+-- Indeks untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pemesanan`
+-- Indeks untuk tabel `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `pemesanan`
 --
 ALTER TABLE `pemesanan`
   ADD PRIMARY KEY (`idPemesanan`),
@@ -137,56 +186,81 @@ ALTER TABLE `pemesanan`
   ADD KEY `iduser` (`iduser`);
 
 --
--- Indexes for table `stock`
+-- Indeks untuk tabel `profil`
+--
+ALTER TABLE `profil`
+  ADD PRIMARY KEY (`idprofil`),
+  ADD KEY `iduser` (`iduser`);
+
+--
+-- Indeks untuk tabel `stock`
 --
 ALTER TABLE `stock`
   ADD PRIMARY KEY (`idStock`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `migrations`
+-- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `pemesanan`
+-- AUTO_INCREMENT untuk tabel `password_resets`
+--
+ALTER TABLE `password_resets`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `pemesanan`
 --
 ALTER TABLE `pemesanan`
   MODIFY `idPemesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `stock`
+-- AUTO_INCREMENT untuk tabel `profil`
+--
+ALTER TABLE `profil`
+  MODIFY `idprofil` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `stock`
 --
 ALTER TABLE `stock`
   MODIFY `idStock` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `pemesanan`
+-- Ketidakleluasaan untuk tabel `pemesanan`
 --
 ALTER TABLE `pemesanan`
   ADD CONSTRAINT `pemesanan_ibfk_1` FOREIGN KEY (`idStock`) REFERENCES `stock` (`idStock`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `pemesanan_ibfk_2` FOREIGN KEY (`iduser`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `profil`
+--
+ALTER TABLE `profil`
+  ADD CONSTRAINT `profil_ibfk_1` FOREIGN KEY (`iduser`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

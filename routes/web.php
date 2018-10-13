@@ -36,6 +36,8 @@ Route::get('/postTerasi/{id}','terasiController@postBarang')->middleware('ceksta
 Route::get('/batalpostTerasi/{id}','terasiController@batalpostBarang')->middleware('cekstat');
 Route::get('/editTerasi/{id}','terasiController@geteditBarang')->middleware('auth', 'cekstat');
 Route::post('/updateTerasi/{id}','terasiController@editBarang')->middleware('auth', 'cekstat');
+Route::get('/profil','profilController@redir')->middleware('auth');
+Route::post('/updateProfil','profilController@updateProfile')->middleware('auth');
 Route::get('protected', ['middleware' => ['auth', 'admin'], function() {
     return "this page requires that you be logged in and an Admin";
 }]);

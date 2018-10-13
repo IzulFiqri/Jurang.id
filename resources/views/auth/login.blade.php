@@ -43,22 +43,26 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h2>Dirección / Contacto</h2>
-                    <p>Morbi non mauris massa. Duis elit mauris, malesuada nec suscipit ac, bibendum sed augue. Maecenas condimentum magna gravida, laoreet nunc sed, euismod sem. </p>
+                    <h2>PPL Kelompok D</h2>
+                    <p>Nengah Adinda (PM)<br>Ramadhany Aisyah (Analyst) | 
+                    Ayu Puji (Designer)<br>Refardo Gelora (Programmer) | M Izul (Tester)</p>
+                    <p>Universitas Jember © 2018</p>
                 </div>
                 <div class="col-md-6">
                     <div class="row icon-features">
                         <div class="col-4 icon-feature"><i class="fa fa-map-marker"></i>
-                            <p>Dirección </p>
-                            <p>lkjlkdjfsdfjsd pofpsdfjñklsdjkljd </p>
+                            <p>Alamat</p>
+                            <p>Jl. Kalimantan No. 37<br>
+                            Kampus Tegalboto Kabupaten Jember</p>
                         </div>
                         <div class="col-4 icon-feature"><i class="fa fa-phone"></i>
-                            <p>Teléfono </p>
-                            <p>6454875340 - 44095834985</p>
+                            <p>Nomor Telepon</p>
+                            <p>+62 877-5755-4527<br>
+                            +62 838-5101-6003</p>
                         </div>
                         <div class="col-4 icon-feature"><i class="fa fa-envelope"></i>
-                            <p>Correo </p>
-                            <p>ejemplo@ejempl.com </p>
+                            <p>E-Mail</p>
+                            <p>162410101056@students.unej.ac.id</p>
                         </div>
                     </div>
                 </div>
